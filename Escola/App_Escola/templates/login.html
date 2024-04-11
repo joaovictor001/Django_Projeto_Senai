@@ -9,14 +9,25 @@
 </head>
 <body>
     
-    <form action="/enviar_login" method="post">
+        {% if messages %}
+            <ul class="mensagem_do_servidor">
+                {% for mensagem in messages %}
+                    <li {% if mensagem.tags %}class="alert alert-{{message.tags}}"{%endif %}>{{mensagem}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    
+    <form action="{% url 'enviar_login' %}" method="post">{% csrf_token %}
         <div class="erro-message">
             <!-- Mensagem de erro sera inserida aqui -->
         </div>
+        
+        
         <label>Usuario: </label>
-        <input  type="email" name="email"></input>
+        <input  type="text" id="email"name="email"></input>
         <label>Senha: </label>
-        <input  type="password" name="senha"></input>
+        <input  type="password" id="senha" name="senha"></input>
         
         <button type="submit">Enviar</button>
     </form>

@@ -5,7 +5,7 @@ class Professor(models.Model):
 
     nome = models.CharField(max_length=120)
     email = models.CharField(max_length=120)
-    senah = models.CharField(max_length=64)
+    senha = models.CharField(max_length=64)
 
     def __str__(self):
         return self.nome
