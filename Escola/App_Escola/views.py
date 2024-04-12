@@ -73,13 +73,13 @@ def enviar_login(request):
 
                 id_logado = dados_professor[0]
                 id_logado = id_logado['id']
-                turmas_do_professor = Turmas.objects.filter(id_professor=id_logado)
+                turmas_do_professor = Turma.objects.filter(id_professor=id_logado)
                 print("Turma do Professor", turmas_do_professor)
                 return render (request , 'Cons_Turma_Lista.html', {'usuario_logado': usuario_logado,
                                                                    'turmas_do_professor':turmas_do_professor,
                                                                    'id_logado': id_logado})
             else:
-                menssges.info(request, 'Usuario ou senha incorretos. Tente novamente. ')
+                messages.info(request, 'Usuario ou senha incorretos. Tente novamente. ')
                 return render(request,'login.html')
             
         messages.info(request, "Olá"+ email+ ",seja bem-vindo! Perebemos que voce é novo por aqui. Complete seu cadastro.")
