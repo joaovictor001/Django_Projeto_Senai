@@ -123,6 +123,8 @@ def salvar_turma_nova(request):
     return redirect('lista_turma', id_professor=id_professor)
 
 
+
+
 def lista_turma(request, id_professor):
     dados_professor = Professor.objects.filter(id=id_professor).values("nome", "id")
     usuario_logado = dados_professor[0]
@@ -133,3 +135,20 @@ def lista_turma(request, id_professor):
     return render(request, 'Cons_Turma_Lista.html',
                             {'usuario_logado': usuario_logado, 'turmas_do_professor': turmas_do_professor,
                             'id_logado': id_logado})
+                            
+
+def ver_atividades(request, id_turma):
+    dados_professor = Professor.objects.filter(id=id_professor).values("nome", "id")
+    usuario_logado = dados_professor[0]
+    usuario_logado = usuario_logado['nome']
+    id_logado = dados_professor[0]
+    id_logado = id_logado['id']
+    turmas_do_professor = Turma.objects.filter(id_professor=id_logado)
+    return render(request, 'Cons_Atividade_Lista.html',
+                            {'usuario_logado': usuario_logado, 'turmas_do_professor': turmas_do_professor,
+                            'id_logado': id_logado})
+
+
+
+
+
