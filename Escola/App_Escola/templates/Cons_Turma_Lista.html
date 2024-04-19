@@ -53,8 +53,8 @@
             <tr>
                 <td style="text-align:center">{{igs.id}} </td>
                 <td>{{igs.nome_turma}}</td>
-                <td style="text-align:center"><a href="javascript:valida_excluir({{igs.id}})"><i class="fa-solid fa-trash"></i></a></td>
-                <td style="text-align:center"><a href="{% url 'ver_atividades' id_turma=1 %}"><i class="fa-solid fa-eye"></i></a></td>
+                <td style="text-align:center"><a href="{% url 'excluir_turma' id_turma=igs.id %}"><i class="fa-solid fa-trash"></i></a></td>
+                <td style="text-align:center"><a href="{% url 'ver_atividades' id_turma=igs.id %}"><i class="fa-solid fa-eye"></i></a></td>
             </tr>
             {% endfor %}
 

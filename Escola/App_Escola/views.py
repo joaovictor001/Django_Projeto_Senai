@@ -122,6 +122,13 @@ def salvar_turma_nova(request):
 
     return redirect('lista_turma', id_professor=id_professor)
 
+def salvar_atividade_nova(request):
+    nome_atividade = request.POST.get('nome_atividade')
+    print(nome_atividade)
+    id_turma_logado = request.POST.get('id_turma_logado')
+    print(id_turma_logado)
+    
+
 
 
 
@@ -137,16 +144,54 @@ def lista_turma(request, id_professor):
                             'id_logado': id_logado})
                             
 
-def ver_atividades(request, id_turma):
-    dados_professor = Professor.objects.filter(id=id_professor).values("nome", "id")
-    usuario_logado = dados_professor[0]
-    usuario_logado = usuario_logado['nome']
-    id_logado = dados_professor[0]
-    id_logado = id_logado['id']
-    turmas_do_professor = Turma.objects.filter(id_professor=id_logado)
+def ver_atividades(request,id_turma):
+    print(f'get do id{id_turma}')
+    dados_turma = Turma.objects.filter(id=id_turma).values("nome_turma", "id")
+    print(dados_turma)
+    turma_logada = dados_turma[0]
+    turma_logada = turma_logada['nome_turma']
+    id_turma_logado = dados_turma[0]
+    id_turma_logado = id_turma_logado['id']
+    lista_atividade = Atividade.objects.filter(id_turma=id_turma_logado)
+
+    print(lista_atividade)
+
     return render(request, 'Cons_Atividade_Lista.html',
-                            {'usuario_logado': usuario_logado, 'turmas_do_professor': turmas_do_professor,
-                            'id_logado': id_logado})
+                  {'turma_logada': turma_logada, 'lista_atividade': lista_atividade,
+                   'id_turma':id_turma_logado})
+
+def salvar_atividade_nova(request, id_turma_id):
+    nome_atividade = request.POST.get('nome_atividade')
+    
+    print(nome_atividade)
+    
+    grava_atividade = Atividade(
+        nome_atividade=nome_atividade,
+        id_turma_id=id_turma_id 
+    )
+    grava_atividade.save()
+    messages.info(request, 'Atividade cadastrada com sucesso.')
+    return redirect('ver_atividades', id_turma=id_turma_id)
+
+
+def excluir_turma(request, id_turma):
+    dados_atividade = Atividade.objects.filter(id_turma=id_turma)
+    id_professor = request.POST.get('id_logado')
+    print(id_professor)
+    if dados_atividade:
+        messages.info(request, 'Nao é possivel apagar turma vincula a uma atividade.')
+        return redirect ('lista_turma',id_professor=id_professor)
+    else:
+        dados_atividade.delete()
+        messages.info(request, 'apagado com sucesso')
+       
+       
+
+
+
+
+
+    
 
 
 
