@@ -28,5 +28,6 @@ urlpatterns = [
     path('excluir_turma/<int:id_turma>', views.excluir_turma, name='excluir_turma'),
     path('salvar_turma', views.salvar_turma_nova, name='salvar_turma_nova'),
     path('ver_atividades/<int:id_turma>', views.ver_atividades, name='ver_atividades'),
-    path('lista_turma/<int:id_professor>', views.lista_turma, name='lista_turma')
+    path('lista_turma/<int:id_professor>', views.lista_turma, name='lista_turma'),
+    path('logout',views.logout, name="logout")
 ]

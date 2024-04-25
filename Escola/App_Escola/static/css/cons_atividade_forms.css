@@ -1,0 +1,54 @@
+/* Estilizando o formulário */
+.form {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilizando o conteúdo do formulário */
+.form-content {
+    margin-bottom: 20px;
+}
+
+/* Estilizando o campo de entrada de texto */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Estilizando a mensagem de validação */
+a {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #ff3333;
+}
+
+/* Estilizando os botões */
+.botoes {
+    text-align: right;
+}
+
+/* Estilizando o botão de confirmar */
+.btn_confirmar {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilizando o botão de confirmar ao passar o mouse */
+.btn_confirmar:hover {
+    background-color: #0056b3;
+}

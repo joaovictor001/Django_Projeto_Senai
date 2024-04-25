@@ -176,14 +176,20 @@ def salvar_atividade_nova(request, id_turma_id):
 
 def excluir_turma(request, id_turma):
     dados_atividade = Atividade.objects.filter(id_turma=id_turma)
-    id_professor = request.POST.get('id_logado')
+    turma = Turma.objects.filter(id=id_turma)
+    id_professor = request.GET.get('id_professor')
     print(id_professor)
     if dados_atividade:
         messages.info(request, 'Nao é possivel apagar turma vincula a uma atividade.')
         return redirect ('lista_turma',id_professor=id_professor)
     else:
-        dados_atividade.delete()
+        turma.delete()
         messages.info(request, 'apagado com sucesso')
+        return redirect ('lista_turma',id_professor=id_professor)
+
+
+def logout(request):
+    return render(request, 'login.html')
        
        
 

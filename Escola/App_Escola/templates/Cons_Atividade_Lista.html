@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/cons_turma_lista.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cons_atividade_forms.css' %}">
     <title>Lista de Lista do professor</title>
 </head>
 <header class="login">
@@ -18,8 +19,9 @@
 <nav class="menu">
     <ul>
        <li><a href="/cad_turma/{{id_logado}}">Cadastrar Turmas</a></li>
-       <li> | Turma logado: {{turma_logada}} |{{id_turma}} </a></li>
-       <li><a href="../accounts/logout">SAIR</a></li>
+       <li> | Turma logado: {{turma_logada}} | {{id_turma}} </a></li>
+       <!-- ../accounts/logout -->
+       <li><a href="/logout">SAIR</a></li>
     </ul>
 </nav> 
      
@@ -44,8 +46,7 @@
             <tr>
                 <th>Id_Atividade</th>
                 <th>Atividade</th>
-                <th>Excluir</th>
-                <th>Visitar</th>    
+
             </tr>
             
             {% for igs in lista_atividade %}
