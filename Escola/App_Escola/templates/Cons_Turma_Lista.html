@@ -67,57 +67,6 @@
 
 </body>
 
-<script>
-
-function login(){
-        const value_id_logado = localStorage.getItem('proj_escola_id_logado');
-        const value_nome_logado = localStorage.getItem('proj_escola_nome_logado');
-        let id_logado = document.getElementById("id_logado").value
-        if (value_id_logado == null) {
-
-            let nome_logado = document.getElementById("nome_logado").value
-            localStorage.setItem('proj_escola_id_logado', id_logado)
-            localStorage.setItem('proj_escola_nome_logado', nome_logado)
-        }
-        else
-        {
-          if (value_id_logado == null || value_id_logado != id_logado) {
-              window.alert('Você não está logado. Faça o Login antes de continuar.');
-              window.location.href='../';
-          }
-          else{
-            document.getElementById("id_logado").value = value_id_logado ;
-            document.getElementById("nome_logado").value = value_nome_logado ;
-          }
-        }
-    }
-
-</script>
-
-<script>
-
-function valida_excluir(id){
-  // Primeiro, exibir a mensagem de confirmação
-  let userConfirmation = confirm("Você tem certeza de que deseja excluir este item?");
-
-  // Se o usuário confirmou a exclusão
-  if(userConfirmation) {
-
-    id=id;
-    endereco='/excluir_turma/' + id;
-    window.location.href=endereco;
-  }
-  // Se o usuário cancelou a exclusão
-  else {
-    console.log('Operação de exclusão cancelada.');
-  }
-}
-
-
-
-
-
-</script>
 
 
 
