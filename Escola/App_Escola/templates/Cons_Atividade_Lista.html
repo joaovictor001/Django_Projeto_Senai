@@ -56,7 +56,7 @@
                 <td style="text-align:center">{{igs.id}} </td>
                 <td>{{igs.nome_atividade}}</td>
                 {% if igs.arquivo %}
-                <td>{{igs.arquivo}}</td>
+                <td><a href="{{igs.arquivo}}"><img src="{% static 'imagens/pasta.png ' %}" alt=""></td></a>
                 {% endif %}
 
                 

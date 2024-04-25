@@ -4,7 +4,8 @@ from .models import Professor,Turma,Atividade
 from django.db import connection, transaction
 from django.contrib import messages
 from django.http import HttpResponse
-
+import os
+import  mimetypes
 def initial_population():
     print("Vou Popular")
 
@@ -192,6 +193,21 @@ def excluir_turma(request, id_turma):
 
 def logout(request):
     return render(request, 'login.html')
+
+
+def exibir_arquivo(request,nome_arquivo):
+    caminho_arquivo = os.path.join('atividade_arquivos/', nome_arquivo)
+    if os.path.exists(caminho_arquivo):
+        with open (caminho_arquivo, 'rb')as arquivo:
+            conteudo = arquivo.read()
+
+        tipo_mimetype, _ = mimetypes.guess_type(caminho_arquivo)
+        resposta = HttpResponse(conteudo, content_type=tipo_mimetype)
+        resposta['Content-Disposition'] = 'inline; filename="'+nome_arquivo+'"'
+        return resposta
+    else:
+        return HttpResponse('Arquivo não encontrado', status=404)
+
        
        
 

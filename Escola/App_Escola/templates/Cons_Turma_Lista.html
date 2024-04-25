@@ -53,8 +53,8 @@
             <tr>
                 <td style="text-align:center">{{igs.id}} </td>
                 <td>{{igs.nome_turma}}</td>
-                <td style="text-align:center"><a href="/excluir_turma/{{igs.id}}?id_professor={{id_logado}}"><i class="fa-solid fa-trash"></i></a></td>
-                <td style="text-align:center"><a href="{% url 'ver_atividades' id_turma=igs.id %}"><i class="fa-solid fa-eye"></i></a></td>
+                <td style="text-align:center"><a href="/excluir_turma/{{igs.id}}?id_professor={{id_logado}}">excluir</a></td>
+                <td style="text-align:center"><a href="{% url 'ver_atividades' id_turma=igs.id %}">visualizar</a></td>
             </tr>
             {% endfor %}
 
