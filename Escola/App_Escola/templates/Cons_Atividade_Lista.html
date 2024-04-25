@@ -40,12 +40,14 @@
          {% endif %}
         <input type="hidden"  name="id_turma_logado" id="id_turma_logado"  value="{{id_turma_logado}}" />
         <input type="hidden"  name="nome_logado" id="nome_logado"  value="{{usuario_logado}}" />
+    
         <hr>
 
         <table>
             <tr>
                 <th>Id_Atividade</th>
                 <th>Atividade</th>
+                <th>arquivo</th>
 
             </tr>
             
@@ -53,21 +55,27 @@
             <tr>
                 <td style="text-align:center">{{igs.id}} </td>
                 <td>{{igs.nome_atividade}}</td>
-               
+                {% if igs.arquivo %}
+                <td>{{igs.arquivo}}</td>
+                {% endif %}
+
+                
             </tr>
+
             {% endfor %}
 
         </table>
 
     </div>
     
-        <form id="form" class="form" method="POST" action="{% url 'salvar_atividade_nova' id_turma_id=id_turma %}">{% csrf_token %}
+        <form id="form" class="form" method="POST" action="{% url 'salvar_atividade_nova' id_turma_id=id_turma  %}" enctype="multipart/form-data">{% csrf_token %}
 
             <div class="form-content">
 
                 
                 <input type="text" id="nome_atividade" name="nome_atividade"  placeholder="Digite a atividade da turma" />
                 <a>Nome deve ter no mínimo 3 caracteres</a>
+                <input type="file" name="arquivo" id="arquivo" value="">
             </div>
             <div class="botoes">
                 <div class="botao_confirmar">

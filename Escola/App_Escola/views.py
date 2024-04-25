@@ -162,12 +162,14 @@ def ver_atividades(request,id_turma):
 
 def salvar_atividade_nova(request, id_turma_id):
     nome_atividade = request.POST.get('nome_atividade')
+    arquivo = request.FILES.get('arquivo')
     
     print(nome_atividade)
     
     grava_atividade = Atividade(
         nome_atividade=nome_atividade,
-        id_turma_id=id_turma_id 
+        id_turma_id=id_turma_id,
+        arquivo=arquivo
     )
     grava_atividade.save()
     messages.info(request, 'Atividade cadastrada com sucesso.')
