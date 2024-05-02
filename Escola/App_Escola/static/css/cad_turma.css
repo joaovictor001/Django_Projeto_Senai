@@ -1,9 +1,11 @@
 /* Estilo para o corpo da página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-image:url(../imagens/background_image/pateta.png) ;
+
     margin: 0;
     padding: 0;
+
 }
 
 /* Estilo para o cabeçalho */

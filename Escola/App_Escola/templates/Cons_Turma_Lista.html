@@ -40,6 +40,9 @@
         <input type="hidden"  name="id_logado" id="id_logado"  value="{{id_logado}}" />
         <input type="hidden"  name="nome_logado" id="nome_logado"  value="{{usuario_logado}}" />
         <hr>
+        <a href="/exportar_excel_turmas" download>
+            <button>Exportar para Excel</button>
+        </a>
 
         <table>
             <tr>
@@ -53,8 +56,8 @@
             <tr>
                 <td style="text-align:center">{{igs.id}} </td>
                 <td>{{igs.nome_turma}}</td>
-                <td style="text-align:center"><a href="/excluir_turma/{{igs.id}}?id_professor={{id_logado}}">excluir</a></td>
-                <td style="text-align:center"><a href="{% url 'ver_atividades' id_turma=igs.id %}">visualizar</a></td>
+                <td style="text-align:center"><a href="/excluir_turma/{{igs.id}}?id_professor={{id_logado}}"><i class="fa-solid fa-trash "style="color:white "></i></a></td>
+                <td style="text-align:center"><a href="{% url 'ver_atividades' id_turma=igs.id %}"><i class="fa-solid fa-eye" style="color:white ;"></i></a></td>
             </tr>
             {% endfor %}
 
@@ -66,8 +69,4 @@
 <script src="https://kit.fontawesome.com/c9237383f1.js" crossorigin="anonymous"></script>
 
 </body>
-
-
-
-
 </html>

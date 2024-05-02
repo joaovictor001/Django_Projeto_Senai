@@ -1,3 +1,35 @@
+header.login {
+    background-color: #264F83;
+    color: #fff;
+    padding: 10px;
+}
+  nav.menu {
+    background-color: #2A6295;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav.menu ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav.menu ul li {
+    display: inline;
+    margin: 0 10px;
+    color: #fff;
+}
+
+nav.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav.menu ul li a:hover {
+    text-decoration: underline;
+}
 /* Estilizando o formulário */
 .form {
     width: 300px;
@@ -6,6 +38,9 @@
     background-color: #f7f7f7;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.form_atv{
+   
 }
 
 /* Estilizando o conteúdo do formulário */
@@ -30,6 +65,19 @@ a {
     font-size: 12px;
     color: #ff3333;
 }
+table a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.center-image {
+    text-align: center; /* Center the content horizontally */
+}
+
+.center-image img {
+    display: block; /* Ensures that the image is treated as a block element */
+    margin: 0 auto; /* Centers the image horizontally within its parent container */
+}
 
 /* Estilizando os botões */
 .botoes {
@@ -41,7 +89,7 @@ a {
     padding: 12px 24px;
     font-size: 16px;
     color: #fff;
-    background-color: #007bff;
+    background-color: #416A98;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -50,5 +98,9 @@ a {
 
 /* Estilizando o botão de confirmar ao passar o mouse */
 .btn_confirmar:hover {
-    background-color: #0056b3;
+    background-color: #7a797c;
+}
+
+.nome_sistema{
+    color: #fff;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/cons_turma_lista.css' %}">
     <link rel="stylesheet" href="{% static 'css/cons_atividade_forms.css' %}">
+    <link rel="shortcut icon" type="imagex/png" href="">
     <title>Lista de Lista do professor</title>
 </head>
 <header class="login">
@@ -42,6 +43,9 @@
         <input type="hidden"  name="nome_logado" id="nome_logado"  value="{{usuario_logado}}" />
     
         <hr>
+        <a href="/exportar-excel" download>
+            <button>Exportar para Excel</button>
+        </a>
 
         <table>
             <tr>
@@ -56,7 +60,7 @@
                 <td style="text-align:center">{{igs.id}} </td>
                 <td>{{igs.nome_atividade}}</td>
                 {% if igs.arquivo %}
-                <td><a href="{{igs.arquivo}}"><img src="{% static 'imagens/pasta.png ' %}" alt=""></td></a>
+                <td class="center-image" ><a href="../../{{igs.arquivo}}"><img src="{% static 'imagens/lista.png ' %}" alt=""></td></a>
                 {% endif %}
 
                 
@@ -68,7 +72,7 @@
 
     </div>
     
-        <form id="form" class="form" method="POST" action="{% url 'salvar_atividade_nova' id_turma_id=id_turma  %}" enctype="multipart/form-data">{% csrf_token %}
+        <form id="form" class="form_atv" method="POST" action="{% url 'salvar_atividade_nova' id_turma_id=id_turma  %}" enctype="multipart/form-data">{% csrf_token %}
 
             <div class="form-content">
 

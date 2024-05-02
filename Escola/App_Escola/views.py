@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 import os
 import  mimetypes
+import openpyxl
 def initial_population():
     print("Vou Popular")
 
@@ -207,6 +208,62 @@ def exibir_arquivo(request,nome_arquivo):
         return resposta
     else:
         return HttpResponse('Arquivo não encontrado', status=404)
+
+def exportar_para_excel_turmas(request):
+    # Consulta para obter dados
+    dados_turma = Turma.objects.all()
+
+    #Criando arquivo
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = "Turmas"
+
+
+    #Escrevendo o cabeçalho
+    sheet['A1' ]= "ID"
+    sheet['B1'] = "Nome da Turma"
+
+    #escrevendo dados
+    for index, turma in enumerate (dados_turma, start=2):
+        sheet[f'A{index}'] = turma.id
+        sheet[f'B{index}'] = turma.nome_turma
+
+
+    #Salvando
+    response = HttpResponse (content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=turma.xlsx'
+    workbook.save(response)
+    return response
+
+def exportar_para_excel_Atividades(request):
+    # Consulta para obter dados
+    dados_atividades = Atividade.objects.all()
+
+    #Criando arquivo
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = "Atividades"
+
+
+    #Escrevendo o cabeçalho
+    sheet['A1'] = "ID"
+    sheet['B1'] = "Nome da Atividade"
+    sheet['C1'] = "Turma"
+
+    #escrevendo dados
+    for index, atividade in enumerate (dados_atividades, start=2):
+        sheet[f'A{index}'] = atividade.id
+        sheet[f'B{index}'] = atividade.nome_atividade
+        sheet[f'C{index}'] = atividade.id_turma.nome_turma
+
+
+    #Salvando
+    response = HttpResponse (content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=atividades.xlsx'
+    workbook.save(response)
+    return response
+
+
 
        
        
