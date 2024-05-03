@@ -188,7 +188,7 @@ def excluir_turma(request, id_turma):
         return redirect ('lista_turma',id_professor=id_professor)
     else:
         turma.delete()
-        messages.info(request, 'apagado com sucesso')
+        messages.info(request, 'Apagado com sucesso')
         return redirect ('lista_turma',id_professor=id_professor)
 
 
