@@ -7,6 +7,7 @@ from django.http import HttpResponse
 import os
 import  mimetypes
 import openpyxl
+
 def initial_population():
     print("Vou Popular")
 
@@ -53,8 +54,10 @@ def abre_index(request):
         initial_population()  # Chama a função para popular o banco de dados com dados iniciais
     else:
         print("Achei Obama", verifica_populado)
+        
+    usuario_logado = request.user.username
+    return render(request , 'index.html',{'usuario_logado':usuario_logado})
 
-    return render(request, 'login.html')
 
     
 
@@ -264,9 +267,6 @@ def exportar_para_excel_Atividades(request):
     return response
 
 
-
-       
-       
 
 
 

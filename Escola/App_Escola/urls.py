@@ -33,6 +33,7 @@ urlpatterns = [
     path('atividade_arquivos/<str:nome_arquivo>', views.exibir_arquivo, name="exibir_arquivo"),
     path('exportar_excel_turmas/', views.exportar_para_excel_turmas, name='exporar_excel_turmas'),
     path('exportar-excel/', views.exportar_para_excel_Atividades, name='exportar_excel'),
+   
 
    
 ]

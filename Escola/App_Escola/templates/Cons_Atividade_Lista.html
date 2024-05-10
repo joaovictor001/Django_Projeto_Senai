@@ -52,6 +52,7 @@
                 <th>Id_Atividade</th>
                 <th>Atividade</th>
                 <th>arquivo</th>
+                <th>Excluir</th>
 
             </tr>
             
@@ -61,6 +62,7 @@
                 <td>{{igs.nome_atividade}}</td>
                 {% if igs.arquivo %}
                 <td class="center-image" ><a href="../../{{igs.arquivo}}"><img src="{% static 'imagens/lista.png ' %}" alt=""></td></a>
+                <td style="text-align:center"><a href="{% url 'excluir_atividade'  %}"><i class="fa-solid fa-trash" style="color:white ;"></i></a></td>
                 {% endif %}
 
                 
@@ -95,6 +97,7 @@
 
 </body>
 
+<script src="https://kit.fontawesome.com/c9237383f1.js" crossorigin="anonymous"></script>
 
 
 </html>
