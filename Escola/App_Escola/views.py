@@ -68,18 +68,22 @@ def enviar_login(request):
         senha_criptografada = sha256(senha.encode()).hexdigest()
         dados_professor = Professor.objects.filter(email=email).values("nome","senha","id")
         print("Dados do Professor" , dados_professor)
+        print("metodo Post")
+        
         #if len(dados_professor) > 0
         if dados_professor:
+            print("verificado")
             senha = dados_professor[0]
             senha = senha['senha']
             usuario_logado  = dados_professor[0]
             usuario_logado = usuario_logado['nome']
             if(senha == senha_criptografada):
-
+                print("entrou")
                 id_logado = dados_professor[0]
                 id_logado = id_logado['id']
                 turmas_do_professor = Turma.objects.filter(id_professor=id_logado)
                 print("Turma do Professor", turmas_do_professor)
+
                 return render (request , 'Cons_Turma_Lista.html', {'usuario_logado': usuario_logado,
                                                                    'turmas_do_professor':turmas_do_professor,
                                                                    'id_logado': id_logado})

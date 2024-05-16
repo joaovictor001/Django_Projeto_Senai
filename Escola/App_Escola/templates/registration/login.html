@@ -18,7 +18,7 @@
         {% endif %}
 
     
-    <form action="{% url 'enviar_login' %}" method="post">{% csrf_token %}
+    <form action="{% url 'login' %}" method="post">{% csrf_token %}
         <div class="erro-message">
             <!-- Mensagem de erro sera inserida aqui -->
         </div>

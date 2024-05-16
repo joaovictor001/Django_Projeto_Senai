@@ -1,5 +1,7 @@
 from django.shortcuts import render
-
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 def formulario_novo_user(request):
     return render(request,'cad_user.html')
 
